@@ -1,0 +1,1057 @@
+<!DOCTYPE html>
+<html class="dark scroll-smooth" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>ESOTERICA 2K26 - Intercollegiate Hackathon</title>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- GSAP for animations -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<!-- Fonts -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Anybody:wght@800;900&amp;family=JetBrains+Mono:wght@400;500&amp;family=Space+Grotesk:wght@700&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                            "on-tertiary-fixed": "#00201c",
+                            "on-primary": "#133539",
+                            "on-surface-variant": "#c1c8c9",
+                            "background": "#021619",
+                            "surface-container-lowest": "#001114",
+                            "on-secondary-container": "#5c3400",
+                            "off-white": "#FDFCF0",
+                            "on-primary-fixed": "#001f23",
+                            "chalk-green": "#74C69D",
+                            "tertiary": "#6ad9c7",
+                            "primary-fixed-dim": "#aacdd1",
+                            "on-tertiary-container": "#31a897",
+                            "outline": "#8b9293",
+                            "on-secondary": "#492900",
+                            "surface-container-highest": "#24383b",
+                            "surface-variant": "#24383b",
+                            "inverse-primary": "#436468",
+                            "on-background": "#d0e7ea",
+                            "on-surface": "#d0e7ea",
+                            "secondary-container": "#f29200",
+                            "on-error": "#690005",
+                            "primary-container": "#123438",
+                            "surface-container-high": "#192d30",
+                            "tertiary-fixed": "#88f5e2",
+                            "tertiary-container": "#00362f",
+                            "on-secondary-fixed-variant": "#693c00",
+                            "inverse-on-surface": "#203437",
+                            "error": "#ffb4ab",
+                            "on-error-container": "#ffdad6",
+                            "primary-fixed": "#c6e9ee",
+                            "surface-tint": "#aacdd1",
+                            "surface-container-low": "#091e21",
+                            "on-primary-container": "#7c9da1",
+                            "surface-bright": "#283c40",
+                            "primary": "#aacdd1",
+                            "surface": "#021619",
+                            "on-primary-fixed-variant": "#2c4c50",
+                            "inverse-surface": "#d0e7ea",
+                            "surface-container": "#0e2326",
+                            "surface-dim": "#021619",
+                            "deep-teal-900": "#081B1D",
+                            "secondary-fixed": "#ffdcbd",
+                            "secondary": "#ffb86e",
+                            "on-secondary-fixed": "#2c1600",
+                            "tertiary-fixed-dim": "#6ad9c7",
+                            "on-tertiary-fixed-variant": "#005047",
+                            "outline-variant": "#414849",
+                            "error-container": "#93000a",
+                            "alert-orange": "#FF6B00",
+                            "on-tertiary": "#003731",
+                            "secondary-fixed-dim": "#ffb86e"
+                    },
+                    "borderRadius": {
+                            "DEFAULT": "0.125rem",
+                            "lg": "0.25rem",
+                            "xl": "0.5rem",
+                            "full": "0.75rem"
+                    },
+                    "spacing": {
+                            "margin-desktop": "64px",
+                            "unit": "8px",
+                            "container-max": "1280px",
+                            "gutter": "24px",
+                            "margin-mobile": "16px"
+                    },
+                    "fontFamily": {
+                            "body-md": ["JetBrains Mono"],
+                            "headline-lg": ["Anybody"],
+                            "label-caps": ["Space Grotesk"],
+                            "mono-label": ["JetBrains Mono"],
+                            "display-xl": ["Anybody"],
+                            "headline-lg-mobile": ["Anybody"],
+                            "body-lg": ["JetBrains Mono"],
+                            "headline-md": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                            "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                            "headline-lg": ["48px", {"lineHeight": "52px", "letterSpacing": "-0.02em", "fontWeight": "800"}],
+                            "label-caps": ["14px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                            "mono-label": ["12px", {"lineHeight": "14px", "fontWeight": "500"}],
+                            "display-xl": ["80px", {"lineHeight": "88px", "letterSpacing": "-0.04em", "fontWeight": "900"}],
+                            "headline-lg-mobile": ["32px", {"lineHeight": "36px", "fontWeight": "800"}],
+                            "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                            "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .brutal-shadow {
+            box-shadow: 6px 6px 0px 0px rgba(8, 27, 29, 1);
+        }
+        .brutal-border {
+            border: 2px solid var(--tw-colors-off-white);
+            border-radius: 2px;
+        }
+        .terminal-border {
+            border: 2px solid var(--tw-colors-alert-orange);
+            border-style: double;
+            border-width: 4px;
+        }
+        .grungy-bg {
+            background-image: radial-gradient(rgba(116, 198, 157, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        @keyframes pulse-glow {
+            0% { box-shadow: 0 0 0 0 rgba(255, 107, 0, 0.7); }
+            50% { box-shadow: 0 0 20px 10px rgba(255, 107, 0, 0.3); }
+            100% { box-shadow: 0 0 0 0 rgba(255, 107, 0, 0); }
+        }
+        .urgent-flash {
+            animation: pulse-glow 2s infinite ease-in-out;
+            transition: box-shadow 0.3s ease;
+        }
+        
+        /* New Glitch/Glass styles */
+        .scanlines {
+            background: linear-gradient(
+                to bottom,
+                rgba(255,255,255,0),
+                rgba(255,255,255,0) 50%,
+                rgba(0,0,0,0.1) 50%,
+                rgba(0,0,0,0.1)
+            );
+            background-size: 100% 4px;
+            pointer-events: none;
+        }
+
+        .crt-flicker {
+            animation: crt-flicker 0.15s infinite;
+        }
+        @keyframes crt-flicker {
+            0% { opacity: 0.95; }
+            50% { opacity: 1; }
+            100% { opacity: 0.98; }
+        }
+
+        .glitch-card:hover {
+            animation: glitch-skew 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94) both infinite;
+        }
+
+        @keyframes glitch-skew {
+            0% { transform: skew(0deg) scale(1.02); }
+            20% { transform: skew(-1deg) scale(1.02); }
+            40% { transform: skew(1deg) scale(1.02); }
+            60% { transform: skew(-0.5deg) scale(1.02); }
+            80% { transform: skew(0.5deg) scale(1.02); }
+            100% { transform: skew(0deg) scale(1.02); }
+        }
+
+        @keyframes subtle-pulse {
+            0% { transform: scale(1); box-shadow: 4px 4px 0px 0px rgba(8, 27, 29, 1); }
+            50% { transform: scale(1.05); box-shadow: 6px 6px 10px 0px rgba(255, 107, 0, 0.4); }
+            100% { transform: scale(1); box-shadow: 4px 4px 0px 0px rgba(8, 27, 29, 1); }
+        }
+        
+        .pulse-btn {
+            animation: subtle-pulse 2s infinite ease-in-out;
+        }
+
+        /* Shader canvas */
+        #shader-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        /* Terminal Widget */
+        .terminal-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            max-height: 200px;
+            background: rgba(2, 22, 25, 0.9);
+            border: 1px solid var(--tw-colors-chalk-green);
+            padding: 10px;
+            z-index: 100;
+            overflow: hidden;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 12px;
+            color: var(--tw-colors-chalk-green);
+            box-shadow: 0 0 10px rgba(116, 198, 157, 0.2);
+            backdrop-filter: blur(4px);
+        }
+        .terminal-log-container {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+        .terminal-line {
+            white-space: nowrap;
+            overflow: hidden;
+        }
+        .typing-cursor::after {
+            content: '_';
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        
+        .typewriter-text {
+            display: inline-block;
+        }
+    </style>
+</head>
+<body class="bg-transparent text-on-surface font-body-md overflow-x-hidden min-h-screen flex flex-col">
+<!-- WebGL Shader Background -->
+<canvas id="shader-canvas"></canvas>
+<!-- TopNavBar from JSON -->
+<header class="bg-background/80 backdrop-blur-md dark:bg-background/80 text-primary dark:text-primary docked full-width top-0 sticky z-50 border-b-4 border-primary dark:border-primary shadow-[4px_4px_0px_0px_rgba(8,27,29,1)] relative">
+<div class="flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-4 max-w-container-max mx-auto">
+<div class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg text-chalk-green dark:text-chalk-green italic tracking-tighter">
+                ESOTERICA 2K26
+            </div>
+<button class="md:hidden text-chalk-green p-2 focus:outline-none" id="mobile-menu-btn">
+<span class="material-symbols-outlined text-3xl">menu</span>
+</button>
+<nav class="hidden md:flex gap-gutter items-center" id="desktop-nav">
+<a class="font-label-caps text-label-caps text-on-surface dark:text-on-surface hover:text-chalk-green transition-colors hover:bg-primary-container dark:hover:bg-primary-container p-2" href="#about">About</a>
+<a class="font-label-caps text-label-caps text-on-surface dark:text-on-surface hover:text-chalk-green transition-colors hover:bg-primary-container dark:hover:bg-primary-container p-2" href="#tracks">Tracks</a>
+<a class="font-label-caps text-label-caps text-on-surface dark:text-on-surface hover:text-chalk-green transition-colors hover:bg-primary-container dark:hover:bg-primary-container p-2" href="#rulebook">Rulebook</a>
+</nav>
+<a class="hidden md:inline-block bg-alert-orange text-deep-teal-900 font-label-caps text-label-caps py-2 px-6 brutal-shadow hover:translate-y-[2px] hover:shadow-[4px_4px_0px_0px_rgba(8,27,29,1)] transition-all font-mono-label" href="https://docs.google.com/forms/d/e/1FAIpQLSdQK256-xNvt0gc-bwkmhoyiIHV64Rtx61cELUEudghOy1r8A/viewform?usp=preview" target="_blank" rel="noopener noreferrer">
+                Register 
+            </a>
+</div>
+<!-- Mobile Menu -->
+<nav class="hidden absolute top-full left-0 w-full bg-background/95 border-b-4 border-primary flex-col md:hidden z-50 shadow-lg" id="mobile-menu">
+<a class="font-label-caps text-label-caps text-on-surface dark:text-on-surface hover:text-chalk-green transition-colors hover:bg-primary-container dark:hover:bg-primary-container p-4 border-b border-surface-container-highest" href="#about">About</a>
+<a class="font-label-caps text-label-caps text-on-surface dark:text-on-surface hover:text-chalk-green transition-colors hover:bg-primary-container dark:hover:bg-primary-container p-4 border-b border-surface-container-highest" href="#tracks">Tracks</a>
+<a class="font-label-caps text-label-caps text-on-surface dark:text-on-surface hover:text-chalk-green transition-colors hover:bg-primary-container dark:hover:bg-primary-container p-4 border-b border-surface-container-highest" href="#rulebook">Rulebook</a>
+<a class="font-label-caps text-label-caps text-alert-orange dark:text-alert-orange hover:text-chalk-green transition-colors hover:bg-primary-container dark:hover:bg-primary-container p-4" href="https://docs.google.com/forms/d/e/1FAIpQLSdQK256-xNvt0gc-bwkmhoyiIHV64Rtx61cELUEudghOy1r8A/viewform?usp=preview" target="_blank" rel="noopener noreferrer">[ Register ]</a>
+</nav>
+<script>
+    document.getElementById('mobile-menu-btn').addEventListener('click', function() {
+        const menu = document.getElementById('mobile-menu');
+        menu.classList.toggle('hidden');
+        menu.classList.toggle('flex');
+    });
+    
+    // Close mobile menu on click
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+        link.addEventListener('click', () => {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.add('hidden');
+            menu.classList.remove('flex');
+        });
+    });
+</script>
+</header>
+<main class="flex-grow">
+<!-- Hero Section -->
+<section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden pt-20 crt-flicker">
+<div class="absolute inset-0 scanlines z-0"></div>
+<div class="absolute inset-0 w-full h-full z-0 opacity-40">
+</div>
+<div class="relative z-10 text-center px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto flex flex-col items-center gap-8 hero-content">
+<div class="inline-block bg-alert-orange text-deep-teal-900 font-mono-label text-mono-label py-1 px-4 transform -rotate-2 brutal-shadow mb-4" style="translate: none; rotate: none; scale: none; opacity: 1; transform: rotate(-2.00003deg);">18 SEPT | 8 HOURS</div>
+<h1 class="font-display-xl text-5xl md:text-display-xl text-chalk-green uppercase tracking-tighter drop-shadow-[0_4px_4px_rgba(0,0,0,0.5)] typewriter-target" style="translate: none; rotate: none; scale: none; opacity: 1; transform: translate(0px, 0px);">
+                    ESOTERICA 2K26
+</h1>
+<p class="font-mono-label text-xl md:text-headline-md text-on-surface max-w-2xl mx-auto bg-surface/80 p-4 terminal-border" style="translate: none; rotate: none; scale: none; opacity: 1; transform: translate(0px, 0px);">
+                    <span class="text-alert-orange">WAVE</span>-Intercollegiate Hackathon
+                </p>
+<a class="mt-8 inline-block bg-alert-orange text-deep-teal-900 font-mono-label text-xl md:text-headline-lg py-4 px-8 md:px-12 brutal-shadow transform uppercase pulse-btn terminal-border" href="https://docs.google.com/forms/d/e/1FAIpQLSdQK256-xNvt0gc-bwkmhoyiIHV64Rtx61cELUEudghOy1r8A/viewform?usp=preview" target="_blank" rel="noopener noreferrer" style="translate: none; rotate: none; scale: none; opacity: 1; transform: translate(0px, 50px);">
+                    REGISTER NOW 
+                </a><div class="mt-8 md:mt-12 p-4 md:p-6 bg-surface/80 terminal-border grungy-bg flex gap-4 md:gap-8 items-center justify-center backdrop-blur-md flex-wrap w-full max-w-sm md:max-w-none" id="countdown-timer">
+<div class="flex flex-col items-center">
+<span class="font-display-xl text-4xl md:text-6xl text-alert-orange drop-shadow-[0_0_10px_rgba(255,107,0,0.5)]" id="days">00</span>
+<span class="font-mono-label text-mono-label text-chalk-green uppercase tracking-widest text-[10px] md:text-xs">Days</span>
+</div>
+<div class="text-alert-orange font-display-xl text-3xl md:text-6xl mb-4 md:mb-0">:</div>
+<div class="flex flex-col items-center">
+<span class="font-display-xl text-4xl md:text-6xl text-alert-orange drop-shadow-[0_0_10px_rgba(255,107,0,0.5)]" id="hours">00</span>
+<span class="font-mono-label text-mono-label text-chalk-green uppercase tracking-widest text-[10px] md:text-xs">Hours</span>
+</div>
+<div class="text-alert-orange font-display-xl text-3xl md:text-6xl mb-4 md:mb-0 hidden md:block">:</div>
+<div class="flex flex-col items-center">
+<span class="font-display-xl text-4xl md:text-6xl text-alert-orange drop-shadow-[0_0_10px_rgba(255,107,0,0.5)]" id="minutes">00</span>
+<span class="font-mono-label text-mono-label text-chalk-green uppercase tracking-widest text-[10px] md:text-xs">Mins</span>
+</div>
+<div class="text-alert-orange font-display-xl text-3xl md:text-6xl mb-4 md:mb-0">:</div>
+<div class="flex flex-col items-center">
+<span class="font-display-xl text-4xl md:text-6xl text-alert-orange drop-shadow-[0_0_10px_rgba(255,107,0,0.5)]" id="seconds">00</span>
+<span class="font-mono-label text-mono-label text-chalk-green uppercase tracking-widest text-[10px] md:text-xs">Secs</span>
+</div>
+</div>
+<script>
+    (function() {
+        const targetDate = new Date('September 18, 2026 00:00:00').getTime();
+        const updateTimer = () => {
+            const now = new Date().getTime();
+            const distance = targetDate - now;
+            const timerContainer = document.getElementById('countdown-timer');
+            
+            if (distance < 0) {
+                if (timerContainer) timerContainer.classList.remove('urgent-flash');
+                return;
+            }
+
+            if (distance < (1000 * 60 * 60 * 24)) {
+                if (timerContainer && !timerContainer.classList.contains('urgent-flash')) {
+                    timerContainer.classList.add('urgent-flash');
+                }
+            } else {
+                if (timerContainer && timerContainer.classList.contains('urgent-flash')) {
+                    timerContainer.classList.remove('urgent-flash');
+                }
+            }
+
+            const d = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const h = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const m = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const s = Math.floor((distance % (1000 * 60)) / 1000);
+            
+            const elements = {
+                days: document.getElementById('days'),
+                hours: document.getElementById('hours'),
+                minutes: document.getElementById('minutes'),
+                seconds: document.getElementById('seconds')
+            };
+
+            const updateVal = (el, val) => {
+                const formatted = val.toString().padStart(2, '0');
+                if (el.innerText !== formatted) {
+                    gsap.to(el, { opacity: 0, scale: 0.9, duration: 0.1, onComplete: () => {
+                        el.innerText = formatted;
+                        gsap.to(el, { opacity: 1, scale: 1, duration: 0.2 });
+                    }});
+                }
+            };
+
+            updateVal(elements.days, d);
+            updateVal(elements.hours, h);
+            updateVal(elements.minutes, m);
+            updateVal(elements.seconds, s);
+        };
+        setInterval(updateTimer, 1000);
+        updateTimer();
+    })();
+</script>
+</div>
+<!-- Decorative Elements -->
+<div class="absolute top-1/4 left-10 md:left-20 opacity-50 hidden md:block">
+<span class="material-symbols-outlined text-chalk-green" style="font-size: 64px;">code</span>
+</div>
+<div class="absolute bottom-1/4 right-10 md:right-20 opacity-50 hidden md:block">
+<span class="material-symbols-outlined text-alert-orange" style="font-size: 64px;">terminal</span>
+</div>
+</section>
+
+<!-- Vision Section -->
+<section class="py-16 md:py-20 px-margin-mobile md:px-margin-desktop bg-transparent relative z-10 scroll-section" id="vision">
+  <div class="absolute inset-0 scanlines z-0"></div>
+  <div class="max-w-container-max mx-auto relative z-10">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      <div class="bg-surface-container/80 backdrop-blur-md terminal-border brutal-shadow p-6 md:p-8">
+        <h3 class="text-alert-orange font-label-caps uppercase tracking-widest text-sm md:text-base mb-4">Department of Computer Applications - Vision</h3>
+        <p class="text-on-surface-variant font-body-md text-sm md:text-base leading-relaxed">
+          To cultivate strong computational foundations and nurture competent, resilient, innovative, and socially responsible professionals in Artificial Intelligence and Computing.
+        </p>
+      </div>
+      <div class="bg-surface-container/80 backdrop-blur-md terminal-border brutal-shadow p-6 md:p-8">
+        <h3 class="text-alert-orange font-label-caps uppercase tracking-widest text-sm md:text-base mb-4">Coding Club - Vision</h3>
+        <p class="text-on-surface-variant font-body-md text-sm md:text-base leading-relaxed">
+          To nurture anticipatory learners, especially the marginalized, who leverage emerging digital tools and skills to innovate and contribute responsibly to society.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Wave Divider -->
+<div class="w-full h-24 bg-surface-container-highest flex items-center justify-center overflow-hidden border-y-2 border-alert-orange/30 crt-flicker relative">
+<div class="absolute inset-0 scanlines z-0"></div>
+<div class="font-mono-label text-xs md:text-mono-label text-alert-orange whitespace-nowrap animate-pulse tracking-widest relative z-10">
+                // INNOVATE // HACK // BUILD // REPEAT // INNOVATE // HACK // BUILD // REPEAT //
+            </div>
+</div>
+<!-- About Section -->
+<section class="py-16 md:py-24 px-margin-mobile md:px-margin-desktop bg-transparent relative grungy-bg scroll-section" id="about">
+<div class="absolute inset-0 scanlines z-0"></div>
+<div class="max-w-container-max mx-auto relative z-10">
+<div class="flex flex-col md:flex-row gap-8 md:gap-16 items-center">
+<div class="flex-1 space-y-8">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-alert-orange text-3xl md:text-4xl">lightbulb</span>
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-3xl md:text-headline-lg text-chalk-green uppercase border-b-4 border-alert-orange pb-2 inline-block">
+                                The Vision
+                            </h2>
+</div>
+<div class="p-6 md:p-8 bg-surface-container-low/90 backdrop-blur-sm terminal-border brutal-shadow relative crt-flicker">
+<!-- Paper plane decorative -->
+<div class="absolute -top-4 -right-4 md:-top-6 md:-right-6 transform rotate-12 text-alert-orange">
+<span class="material-symbols-outlined text-4xl md:text-5xl">send</span>
+</div>
+<p class="font-body-lg text-base md:text-body-lg text-on-surface leading-relaxed">
+                                ESOTERICA 2K26 is designed to foster technical innovation and offer a high-octane 8-hour sprint where passionate student developers transform impactful ideas into real-world software solutions.
+                            </p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Tracks Section -->
+<section class="py-16 md:py-24 px-margin-mobile md:px-margin-desktop bg-transparent relative z-10 scroll-section" id="tracks">
+<div class="absolute inset-0 scanlines z-0"></div>
+<div class="max-w-container-max mx-auto relative z-10">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-3xl md:text-headline-lg text-chalk-green uppercase mb-12 md:mb-16 text-center">
+                    Problem <span class="text-alert-orange">Statements</span>
+</h2>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+<!-- Track Cards mapping from instructions -->
+<!-- Card 1 -->
+<div class="bg-surface-container/80 backdrop-blur-md p-6 md:p-8 terminal-border hover:border-alert-orange transition-all duration-300 brutal-shadow group relative overflow-hidden glitch-card crt-flicker">
+<div class="absolute top-0 right-0 bg-chalk-green text-deep-teal-900 font-mono-label text-xs md:text-mono-label px-2 py-1 font-bold group-hover:bg-alert-orange group-hover:text-white group-hover:shadow-[0_0_10px_rgba(255,107,0,0.8)] transition-all">
+                            [ TRACK 01 ]
+                        </div>
+<span class="material-symbols-outlined text-3xl md:text-4xl text-chalk-green mb-4 block group-hover:text-alert-orange transition-colors">restaurant</span>
+<h3 class="font-headline-md text-xl md:text-headline-md text-on-surface mb-2">&gt; CANTEEN ORDER SYSTEM</h3>
+<p class="font-mono-label text-sm md:text-mono-label text-outline">Build a mobile app where students can browse menus, pre-order meals, and select pickup time slots. The canteen receives orders in advance, prepares food on time, and notifies students when ready.</p>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container/80 backdrop-blur-md p-6 md:p-8 terminal-border hover:border-alert-orange transition-all duration-300 brutal-shadow group relative overflow-hidden glitch-card crt-flicker">
+<div class="absolute top-0 right-0 bg-chalk-green text-deep-teal-900 font-mono-label text-xs md:text-mono-label px-2 py-1 font-bold group-hover:bg-alert-orange group-hover:text-white group-hover:shadow-[0_0_10px_rgba(255,107,0,0.8)] transition-all">
+                            [ TRACK 02 ]
+                        </div>
+<span class="material-symbols-outlined text-3xl md:text-4xl text-chalk-green mb-4 block group-hover:text-alert-orange transition-colors">search</span>
+<h3 class="font-headline-md text-xl md:text-headline-md text-on-surface mb-2">&gt; FIND MISSING ITEMS</h3>
+<p class="font-mono-label text-sm md:text-mono-label text-outline">Create a mobile app where users can upload photos of found items. Use image recognition to match lost item descriptions with found items. Include geolocation, notifications, and admin verification.</p>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container/80 backdrop-blur-md p-6 md:p-8 terminal-border hover:border-alert-orange transition-all duration-300 brutal-shadow group relative overflow-hidden glitch-card crt-flicker">
+<div class="absolute top-0 right-0 bg-chalk-green text-deep-teal-900 font-mono-label text-xs md:text-mono-label px-2 py-1 font-bold group-hover:bg-alert-orange group-hover:text-white group-hover:shadow-[0_0_10px_rgba(255,107,0,0.8)] transition-all">
+                            [ TRACK 03 ]
+                        </div>
+<span class="material-symbols-outlined text-3xl md:text-4xl text-chalk-green mb-4 block group-hover:text-alert-orange transition-colors">event</span>
+<h3 class="font-headline-md text-xl md:text-headline-md text-on-surface mb-2">&gt; District-Wide College Event Platform</h3>
+<p class="font-mono-label text-sm md:text-mono-label text-outline">A centralized digital ecosystem where institutions easily publish events and students can universally discover and register for cross-campus opportunities in one place.</p>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface-container/80 backdrop-blur-md p-6 md:p-8 terminal-border hover:border-alert-orange transition-all duration-300 brutal-shadow group relative overflow-hidden glitch-card crt-flicker">
+<div class="absolute top-0 right-0 bg-chalk-green text-deep-teal-900 font-mono-label text-xs md:text-mono-label px-2 py-1 font-bold group-hover:bg-alert-orange group-hover:text-white group-hover:shadow-[0_0_10px_rgba(255,107,0,0.8)] transition-all">
+                            [ TRACK 04 ]
+                        </div>
+<span class="material-symbols-outlined text-3xl md:text-4xl text-chalk-green mb-4 block group-hover:text-alert-orange transition-colors">work</span>
+<h3 class="font-headline-md text-xl md:text-headline-md text-on-surface mb-2">&gt; Skill-Based Freelance Marketplace</h3>
+<p class="font-mono-label text-sm md:text-mono-label text-outline">A dedicated student marketplace that connects emerging talent with real projects, enabling them to showcase portfolios, offer services, and establish professional credibility.</p>
+</div>
+<!-- Card 5 -->
+<div class="bg-surface-container/80 backdrop-blur-md p-6 md:p-8 terminal-border hover:border-alert-orange transition-all duration-300 brutal-shadow group relative overflow-hidden glitch-card crt-flicker">
+<div class="absolute top-0 right-0 bg-chalk-green text-deep-teal-900 font-mono-label text-xs md:text-mono-label px-2 py-1 font-bold group-hover:bg-alert-orange group-hover:text-white group-hover:shadow-[0_0_10px_rgba(255,107,0,0.8)] transition-all">
+                            [ TRACK 05 ]
+                        </div>
+<span class="material-symbols-outlined text-3xl md:text-4xl text-chalk-green mb-4 block group-hover:text-alert-orange transition-colors">bloodtype</span>
+<h3 class="font-headline-md text-xl md:text-headline-md text-on-surface mb-2">&gt; Smart Blood Donor Network</h3>
+<p class="font-mono-label text-sm md:text-mono-label text-outline">To create a seamless, real-time platform that instantly connects hospitals and patients with nearby, available blood donors to save lives without delay.</p>
+</div>
+<!-- Card 6 -->
+<div class="bg-surface-container/80 backdrop-blur-md p-6 md:p-8 terminal-border hover:border-alert-orange transition-all duration-300 brutal-shadow group relative overflow-hidden glitch-card crt-flicker">
+<div class="absolute top-0 right-0 bg-chalk-green text-deep-teal-900 font-mono-label text-xs md:text-mono-label px-2 py-1 font-bold group-hover:bg-alert-orange group-hover:text-white group-hover:shadow-[0_0_10px_rgba(255,107,0,0.8)] transition-all">
+                            [ TRACK 06 ]
+                        </div>
+<span class="material-symbols-outlined text-3xl md:text-4xl text-chalk-green mb-4 block group-hover:text-alert-orange transition-colors">volunteer_activism</span>
+<h3 class="font-headline-md text-xl md:text-headline-md text-on-surface mb-2">&gt; Food Donation Platform</h3>
+<p class="font-mono-label text-sm md:text-mono-label text-outline">To create a simple web platform that reduces food waste and fights hunger by instantly connecting local restaurants with nearby orphanages, making food donation fast and effortless.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Rulebook Section -->
+<section class="py-16 md:py-24 px-margin-mobile md:px-margin-desktop bg-transparent relative z-10 scroll-section" id="rulebook">
+<div class="absolute inset-0 scanlines z-0"></div>
+<div class="max-w-container-max mx-auto relative z-10">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-3xl md:text-headline-lg text-chalk-green uppercase mb-12 md:mb-16 text-center">
+        HACKATHON <span class="text-alert-orange">RULES &amp; REGULATIONS</span>
+</h2>
+<div class="grid grid-cols-1 lg:grid-cols-4 gap-8">
+<div class="lg:col-span-1 space-y-4 overflow-x-auto whitespace-nowrap lg:whitespace-normal pb-4 lg:pb-0 hide-scrollbar">
+<h3 class="text-alert-orange font-label-caps uppercase tracking-widest border-b border-alert-orange/30 pb-2 inline-block lg:block">Command Center</h3>
+<ul class="flex lg:flex-col gap-4 lg:gap-2 font-mono-label mt-2 lg:mt-0">
+<li><a class="text-chalk-green hover:text-alert-orange transition-colors bg-surface-container/50 px-3 py-1 lg:p-0 rounded lg:bg-transparent" href="#eligibility">&gt; Eligibility</a></li>
+<li><a class="text-chalk-green hover:text-alert-orange transition-colors bg-surface-container/50 px-3 py-1 lg:p-0 rounded lg:bg-transparent" href="#registration">&gt; Registration</a></li>
+<li><a class="text-chalk-green hover:text-alert-orange transition-colors bg-surface-container/50 px-3 py-1 lg:p-0 rounded lg:bg-transparent" href="#domains">&gt; Domains</a></li>
+<li><a class="text-chalk-green hover:text-alert-orange transition-colors bg-surface-container/50 px-3 py-1 lg:p-0 rounded lg:bg-transparent" href="#development">&gt; Development</a></li>
+<li><a class="text-chalk-green hover:text-alert-orange transition-colors bg-surface-container/50 px-3 py-1 lg:p-0 rounded lg:bg-transparent" href="#ai-policy">&gt; AI Usage</a></li>
+<li><a class="text-chalk-green hover:text-alert-orange transition-colors bg-surface-container/50 px-3 py-1 lg:p-0 rounded lg:bg-transparent" href="#submission">&gt; Submission</a></li>
+<li><a class="text-chalk-green hover:text-alert-orange transition-colors bg-surface-container/50 px-3 py-1 lg:p-0 rounded lg:bg-transparent" href="#presentation">&gt; Presentation</a></li>
+<li><a class="text-chalk-green hover:text-alert-orange transition-colors bg-surface-container/50 px-3 py-1 lg:p-0 rounded lg:bg-transparent" href="#judging">&gt; Judging</a></li>
+<li><a class="text-chalk-green hover:text-alert-orange transition-colors bg-surface-container/50 px-3 py-1 lg:p-0 rounded lg:bg-transparent" href="#conduct">&gt; Code of Conduct</a></li>
+<li><a class="text-chalk-green hover:text-alert-orange transition-colors bg-surface-container/50 px-3 py-1 lg:p-0 rounded lg:bg-transparent" href="#reminders">&gt; Final Reminders</a></li>
+</ul>
+</div>
+<style>
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+</style>
+<div class="lg:col-span-3 space-y-8 md:space-y-10">
+<div class="p-6 md:p-8 bg-surface-container/80 backdrop-blur-md terminal-border brutal-shadow" id="eligibility">
+<h3 class="font-headline-md text-xl md:text-headline-md text-on-surface mb-4">&gt; Eligibility &amp; Team Formation</h3>
+<ul class="space-y-2 text-on-surface-variant font-body-md text-sm md:text-base list-none">
+<li><span class="text-alert-orange">[✓]</span> Only Undergraduate (UG) students are eligible to participate. All departments are included.</li>
+<li><span class="text-alert-orange">[✓]</span> Each team must consist of 2–3 members.</li>
+<li><span class="text-alert-orange">[✓]</span> Cross-college teams are allowed.</li>
+<li><span class="text-alert-orange">[✓]</span> Every participant must carry a valid College ID Card or Bonafide Certificate.</li>
+<li><span class="text-alert-orange">[✓]</span> All team members are collectively responsible for complying with the hackathon rules.</li>
+</ul>
+</div>
+
+<div class="p-6 md:p-8 bg-surface-container/80 backdrop-blur-md terminal-border brutal-shadow" id="registration">
+<h3 class="font-headline-md text-xl md:text-headline-md text-on-surface mb-4">&gt; Registration</h3>
+<ul class="space-y-2 text-on-surface-variant font-body-md text-sm md:text-base list-none">
+<li><span class="text-alert-orange">[✓]</span> Registration fee is ₹150 per participant.</li>
+<li><span class="text-alert-orange">[✓]</span> Registration details provided by participants must be accurate and complete.</li>
+</ul>
+</div>
+
+<div class="p-6 md:p-8 bg-surface-container/80 backdrop-blur-md terminal-border brutal-shadow" id="domains">
+<h3 class="font-headline-md text-xl md:text-headline-md text-on-surface mb-4">&gt; Domains &amp; Track Selection</h3>
+<ul class="space-y-2 text-on-surface-variant font-body-md text-sm md:text-base list-none">
+<li><span class="text-alert-orange">[✓]</span> The hackathon will provide 6 domains.</li>
+<li><span class="text-alert-orange">[✓]</span> Each domain will contain 3 tracks.</li>
+<li><span class="text-alert-orange">[✓]</span> Each team must select one domain.</li>
+<li><span class="text-alert-orange">[✓]</span> From the selected domain, the team must choose one challenge.</li>
+<li><span class="text-alert-orange">[✓]</span> The project must remain relevant to the selected track/problem statement.</li>
+</ul>
+</div>
+
+<div class="p-6 md:p-8 bg-surface-container/80 backdrop-blur-md terminal-border brutal-shadow" id="development">
+<h3 class="font-headline-md text-xl md:text-headline-md text-on-surface mb-4">&gt; Development Requirements</h3>
+<div class="space-y-4 text-on-surface-variant font-body-md text-sm md:text-base">
+<p><strong class="text-chalk-green">Before the Competition</strong></p>
+<ul class="space-y-2 list-none">
+<li><span class="text-alert-orange">[✓]</span> Teams are expected to complete approximately 50% of their project before the hackathon.</li>
+<li><span class="text-alert-orange">[✓]</span> Teams may prepare the initial codebase, project structure, basic architecture, and foundation beforehand.</li>
+<li><span class="text-alert-orange">[✓]</span> Pre-event work must not constitute a fully completed project.</li>
+</ul>
+<p><strong class="text-chalk-green">During the Competition</strong></p>
+<ul class="space-y-2 list-none">
+<li><span class="text-alert-orange">[✓]</span> The remaining 50% of the project must be developed during the hackathon.</li>
+<li><span class="text-alert-orange">[✓]</span> Teams must demonstrate genuine development and implementation during the event.</li>
+<li><span class="text-alert-orange">[✓]</span> Pre-built or previously completed projects presented as hackathon work will not be accepted.</li>
+<li><span class="text-alert-orange">[✓]</span> An Online Round will take place before the competition to filter the work completed.</li>
+</ul>
+</div>
+</div>
+
+<div class="p-6 md:p-8 bg-surface-container/80 backdrop-blur-md terminal-border brutal-shadow" id="ai-policy">
+<h3 class="font-headline-md text-xl md:text-headline-md text-on-surface mb-4">&gt; AI Usage Policy</h3>
+<ul class="space-y-2 text-on-surface-variant font-body-md text-sm md:text-base list-none">
+<li><span class="text-alert-orange">[✓]</span> AI tools are allowed during the hackathon.</li>
+<li><span class="text-alert-orange">[✓]</span> Teams may use AI tools for coding assistance, debugging, research, brainstorming, documentation, design, and other development-related tasks.</li>
+<li><span class="text-alert-orange">[✓]</span> Participants are responsible for understanding and being able to explain all AI-assisted code and implementations used in their project.</li>
+<li><span class="text-alert-orange">[✓]</span> Using AI does not exempt participants from demonstrating their own technical knowledge and contribution.</li>
+<li><span class="text-alert-orange">[✓]</span> AI-generated content must not involve plagiarism, copyright infringement, malicious code, or unethical practices.</li>
+<li><span class="text-alert-orange">[✓]</span> Teams must be able to explain their project's architecture, functionality, technologies, and implementation during the judging and Q&amp;A.</li>
+</ul>
+</div>
+
+<div class="p-6 md:p-8 bg-surface-container/80 backdrop-blur-md terminal-border brutal-shadow" id="submission">
+<h3 class="font-headline-md text-xl md:text-headline-md text-on-surface mb-4">&gt; Project Submission Requirements</h3>
+<ul class="space-y-2 text-on-surface-variant font-body-md text-sm md:text-base list-none">
+<li><span class="text-alert-orange">[✓]</span> Every team must have a working project/prototype.</li>
+<li><span class="text-alert-orange">[✓]</span> Proper project documentation.</li>
+<li><span class="text-alert-orange">[✓]</span> A presentation ready for evaluation.</li>
+<li><span class="text-alert-orange">[✓]</span> Complete project code uploaded to GitHub.</li>
+<li><span class="text-alert-orange">[✓]</span> A live demonstration of the working project.</li>
+<li><span class="text-alert-orange">[✓]</span> A backup screen recording demonstrating the working project in case of technical issues.</li>
+</ul>
+</div>
+
+<div class="p-6 md:p-8 bg-surface-container/80 backdrop-blur-md terminal-border brutal-shadow" id="presentation">
+<h3 class="font-headline-md text-xl md:text-headline-md text-on-surface mb-4">&gt; Presentation &amp; Demonstration</h3>
+<ul class="space-y-2 text-on-surface-variant font-body-md text-sm md:text-base list-none">
+<li><span class="text-alert-orange">[✓]</span> Each team will receive a total of 8 minutes.</li>
+<li><span class="text-alert-orange">[✓]</span> 5 minutes will be allocated for the presentation.</li>
+<li><span class="text-alert-orange">[✓]</span> 3 minutes will be allocated for Q&amp;A.</li>
+<li><span class="text-alert-orange">[✓]</span> Every team member must participate in the presentation.</li>
+<li><span class="text-alert-orange">[✓]</span> No extra time will be given to any team.</li>
+<li><span class="text-alert-orange">[✓]</span> Teams must be prepared to demonstrate their project within the allotted time.</li>
+</ul>
+<p class="mt-4 text-on-surface-variant font-body-md text-sm md:text-base"><strong class="text-chalk-green">Presentation should cover:</strong> Introduction, Problem Statement, Proposed Solution, Justify Your Challenge, Architecture/Workflow, Technologies Used, Development Process, Working Prototype Demonstration, What Makes the Solution Different, Benefits &amp; Target Users, Scalability, Future Scope.</p>
+</div>
+
+<div class="p-6 md:p-8 bg-surface-container/80 backdrop-blur-md terminal-border brutal-shadow" id="judging">
+<h3 class="font-headline-md text-xl md:text-headline-md text-on-surface mb-4">&gt; Judging Criteria</h3>
+<ul class="space-y-3 text-on-surface-variant font-body-md text-sm md:text-base list-none">
+<li><strong class="text-chalk-green">1. Innovation</strong> – Originality and creativity of the solution.</li>
+<li><strong class="text-chalk-green">2. Problem Solving</strong> – Effectiveness and practicality of the proposed solution.</li>
+<li><strong class="text-chalk-green">3. Technical Implementation</strong> – Quality, functionality, and effectiveness of the implementation.</li>
+<li><strong class="text-chalk-green">4. Project Knowledge</strong> – Understanding of the architecture, code, technologies, and implementation decisions; ability to explain AI-assisted components.</li>
+<li><strong class="text-chalk-green">5. Demonstration &amp; Presentation</strong> – Clarity of presentation, quality of live demonstration, and ability to communicate the project's value.</li>
+</ul>
+</div>
+
+<div class="p-6 md:p-8 bg-surface-container/80 backdrop-blur-md terminal-border brutal-shadow" id="conduct">
+<h3 class="font-headline-md text-xl md:text-headline-md text-on-surface mb-4">&gt; Code of Conduct</h3>
+<ul class="space-y-2 text-on-surface-variant font-body-md text-sm md:text-base list-none">
+<li><span class="text-alert-orange">[✓]</span> Participants must maintain respectful and professional behaviour throughout the event.</li>
+<li><span class="text-alert-orange">[✓]</span> Cheating and plagiarism are strictly prohibited.</li>
+<li><span class="text-alert-orange">[✓]</span> Downloaded, copied, or previously completed repositories/projects will not be accepted.</li>
+<li><span class="text-alert-orange">[✓]</span> Participants must not engage in illegal, harmful, malicious, or unethical activities.</li>
+<li><span class="text-alert-orange">[✓]</span> Any form of misconduct may result in disqualification.</li>
+<li><span class="text-alert-orange">[✓]</span> If any member violates the rules, the entire team may be disqualified.</li>
+<li><span class="text-alert-orange">[✓]</span> Teams must respect organizers, judges, volunteers, and fellow participants.</li>
+</ul>
+</div>
+
+<div class="p-6 md:p-8 bg-surface-container/80 backdrop-blur-md terminal-border brutal-shadow" id="judging2">
+<h3 class="font-headline-md text-xl md:text-headline-md text-on-surface mb-4">&gt; Judging &amp; Disqualification</h3>
+<ul class="space-y-2 text-on-surface-variant font-body-md text-sm md:text-base list-none">
+<li><span class="text-alert-orange">[✓]</span> Judging will be conducted fairly and without bias.</li>
+<li><span class="text-alert-orange">[✓]</span> The judges' decision will be final and binding.</li>
+<li><span class="text-alert-orange">[✓]</span> Organizers reserve the right to disqualify teams that violate the rules.</li>
+<li><span class="text-alert-orange">[✓]</span> Teams must be able to demonstrate genuine knowledge of their project, regardless of whether AI tools were used.</li>
+</ul>
+</div>
+
+<div class="p-6 md:p-8 bg-surface-container/80 backdrop-blur-md terminal-border brutal-shadow" id="food">
+<h3 class="font-headline-md text-xl md:text-headline-md text-on-surface mb-4">&gt; Food &amp; Certificates</h3>
+<ul class="space-y-2 text-on-surface-variant font-body-md text-sm md:text-base list-none">
+<li><span class="text-alert-orange">[✓]</span> Lunch and snacks will be provided.</li>
+<li><span class="text-alert-orange">[✓]</span> Participant certificates will be provided.</li>
+</ul>
+</div>
+
+<div class="p-6 md:p-8 bg-surface-container/80 backdrop-blur-md terminal-border brutal-shadow" id="reminders">
+<h3 class="font-headline-md text-xl md:text-headline-md text-on-surface mb-4">&gt; Important Reminders</h3>
+<ul class="space-y-2 text-on-surface-variant font-body-md text-sm md:text-base list-none">
+<li><span class="text-alert-orange">[✓]</span> Bring your College ID Card or Bonafide Certificate.</li>
+<li><span class="text-alert-orange">[✓]</span> Keep your project functional and ready for demonstration.</li>
+<li><span class="text-alert-orange">[✓]</span> Keep your GitHub repository updated.</li>
+<li><span class="text-alert-orange">[✓]</span> Keep the presentation within the 5-minute limit.</li>
+<li><span class="text-alert-orange">[✓]</span> Ensure every team member participates.</li>
+<li><span class="text-alert-orange">[✓]</span> Keep a backup screen recording of the working project.</li>
+<li><span class="text-alert-orange">[✓]</span> Be prepared for the 3-minute Q&amp;A session.</li>
+<li><span class="text-alert-orange">[✓]</span> AI tools may be used, but every team member must understand their project and be able to explain its implementation.</li>
+<li><span class="text-alert-orange">[✓]</span> No extra time will be provided.</li>
+</ul>
+<p class="mt-4 text-on-surface-variant font-body-md text-sm md:text-base"><strong class="text-alert-orange">Final Note:</strong> By participating in the hackathon, all teams agree to follow these rules and regulations. Any violation may result in team-wide disqualification. The organizers and judges reserve the right to make the final decision regarding rule violations, project eligibility, and judging.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Registration Section -->
+<section class="py-16 md:py-24 px-margin-mobile md:px-margin-desktop bg-transparent relative z-10 scroll-section" id="register">
+<div class="absolute inset-0 scanlines z-0"></div>
+<div class="max-w-container-max mx-auto relative z-10 max-w-3xl">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-3xl md:text-headline-lg text-chalk-green uppercase mb-12 md:mb-16 text-center">
+        INITIALIZE <span class="text-alert-orange">REGISTRATION</span>
+</h2>
+<div class="p-6 md:p-8 bg-surface-container/80 backdrop-blur-md terminal-border brutal-shadow crt-flicker text-center">
+<p class="text-on-surface text-base md:text-lg font-mono-label mb-6">Click below to open the official registration form.</p>
+<a class="inline-block bg-alert-orange text-deep-teal-900 font-mono-label text-base md:text-headline-lg-mobile py-4 px-8 md:px-12 brutal-shadow transform uppercase hover:bg-chalk-green transition-colors terminal-border" href="https://docs.google.com/forms/d/e/1FAIpQLSdQK256-xNvt0gc-bwkmhoyiIHV64Rtx61cELUEudghOy1r8A/viewform?usp=preview" target="_blank" rel="noopener noreferrer">
+                [ OPEN GOOGLE FORM ]
+            </a>
+</div>
+</div>
+</section>
+
+<!-- Contact & Team Section -->
+<section class="py-16 md:py-20 px-margin-mobile md:px-margin-desktop bg-transparent relative z-10 scroll-section" id="contacts">
+<div class="absolute inset-0 scanlines z-0"></div>
+<div class="max-w-container-max mx-auto relative z-10">
+<h2 class="font-headline-lg-mobile md:font-headline-lg text-3xl md:text-headline-lg text-chalk-green uppercase mb-12 md:mb-16 text-center">
+        CONTACT <span class="text-alert-orange">DETAILS</span>
+</h2>
+
+<div class="mb-10">
+  <div class="text-center mb-5">
+    <h3 class="text-alert-orange font-label-caps uppercase tracking-widest text-sm md:text-base">Faculty Coordinator</h3>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-1 gap-6 md:gap-8">
+    <div class="bg-surface-container/80 backdrop-blur-md terminal-border brutal-shadow p-5 text-center">
+      <div class="text-on-surface font-headline-md text-xl mb-2">Mr. Karthik</div>
+    <div class="text-on-surface-variant font-mono-label text-sm">Assistant Professor</div>
+      <div class="text-on-surface-variant font-mono-label text-sm mt-1">Department of Computer Applications</div>
+    </div>
+  </div>
+</div>
+
+<div class="mb-10">
+  <div class="text-center mb-5">
+    <h3 class="text-alert-orange font-label-caps uppercase tracking-widest text-sm md:text-base">Student Coordinators</h3>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
+    <div class="bg-surface-container/80 backdrop-blur-md terminal-border brutal-shadow p-5 text-center">
+      <div class="text-chalk-green font-mono-label text-xs uppercase tracking-widest mb-3">Student Coordinator 1</div>
+      <div class="text-on-surface font-headline-md text-xl mb-2">Mr. Theopin</div>
+          </div>
+
+    <div class="bg-surface-container/80 backdrop-blur-md terminal-border brutal-shadow p-5 text-center">
+      <div class="text-chalk-green font-mono-label text-xs uppercase tracking-widest mb-3">Student Coordinator 2</div>
+      <div class="text-on-surface font-headline-md text-xl mb-2">Mr. Yoga Prasanna</div>
+    </div>
+  </div>
+</div>
+
+<div class="mb-10">
+  <div class="text-center mb-5">
+    <h3 class="text-alert-orange font-label-caps uppercase tracking-widest text-sm md:text-base">Event Organiser</h3>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-1 gap-6 md:gap-8">
+    <div class="bg-surface-container/80 backdrop-blur-md terminal-border brutal-shadow p-5 text-center">
+      <div class="text-on-surface font-headline-md text-xl mb-2">Dr. Vinoth Kumar</div>
+      <div class="text-on-surface-variant font-mono-label text-sm">Assistant Professor</div>
+      <div class="text-on-surface-variant font-mono-label text-sm mt-1">Department of Computer Applications</div>
+    </div>
+  </div>
+</div>
+
+<div class="mb-10">
+  <div class="text-center mb-5">
+    <h3 class="text-alert-orange font-label-caps uppercase tracking-widest text-sm md:text-base">Convenor</h3>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-1 gap-6 md:gap-8">
+    <div class="bg-surface-container/80 backdrop-blur-md terminal-border brutal-shadow p-5 text-center">
+      <div class="text-on-surface font-headline-md text-xl mb-2">Mr. Kanaparthy Jaswanth</div>
+      <div class="text-on-surface-variant font-mono-label text-sm">Assistant Professor &amp; Head</div>
+      <div class="text-on-surface-variant font-mono-label text-sm mt-1">Department of Computer Applications</div>
+    </div>
+  </div>
+</div>
+
+<div class="mb-10">
+  <div class="text-center mb-5">
+    <h3 class="text-alert-orange font-label-caps uppercase tracking-widest text-sm md:text-base">Chief Patrons</h3>
+  </div>
+  <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+    <div class="bg-surface-container/80 backdrop-blur-md terminal-border brutal-shadow p-5 text-center">
+      <div class="text-chalk-green font-mono-label text-xs uppercase tracking-widest mb-3">Principal</div>
+      <div class="text-on-surface font-headline-md text-xl">Rev. Dr. K. A. Maria Arokia Raj SDB</div>
+    </div>
+
+    <div class="bg-surface-container/80 backdrop-blur-md terminal-border brutal-shadow p-5 text-center">
+      <div class="text-chalk-green font-mono-label text-xs uppercase tracking-widest mb-3">Vice Principal</div>
+      <div class="text-on-surface font-headline-md text-xl">Rev. Fr. Anbu Francis SDB</div>
+    </div>
+
+    <div class="bg-surface-container/80 backdrop-blur-md terminal-border brutal-shadow p-5 text-center">
+      <div class="text-chalk-green font-mono-label text-xs uppercase tracking-widest mb-3">Secretary</div>
+      <div class="text-on-surface font-headline-md text-xl">Rev. Dr. John Alexander SDB</div>
+    </div>
+  </div>
+</div>
+</div>
+</section>
+</main>
+<!-- Status Terminal Widget -->
+<div class="terminal-widget scanlines crt-flicker hidden md:block">
+<div class="terminal-log-container" id="terminal-logs">
+<div class="terminal-line">&gt; init_system()</div>
+</div>
+</div>
+<!-- Footer from JSON -->
+<footer class="bg-surface-container-lowest/80 backdrop-blur-md dark:bg-surface-container-lowest/80 text-tertiary dark:text-tertiary full-width py-12 terminal-border flat no shadows relative">
+<div class="absolute inset-0 scanlines z-0"></div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-center md:text-left items-center relative z-10">
+<div class="font-headline-md text-2xl md:text-headline-md text-secondary mb-6 md:mb-0">
+                ESOTERICA
+            </div>
+<div class="flex flex-col md:flex-row justify-center gap-3 md:gap-5 font-mono-label text-xs md:text-sm mb-6 md:mb-0 text-center md:text-left">
+<a class="inline-flex items-center justify-center gap-2 bg-surface-container/60 border border-alert-orange/40 px-3 py-2 text-on-surface-variant hover:text-alert-orange hover:border-alert-orange transition-all rounded-sm" href="tel:8939167535">
+  <span class="text-alert-orange">☎</span>
+  <span>Karthik: 8939167535</span>
+</a>
+<a class="inline-flex items-center justify-center gap-2 bg-surface-container/60 border border-alert-orange/40 px-3 py-2 text-on-surface-variant hover:text-alert-orange hover:border-alert-orange transition-all rounded-sm" href="tel:7708180940">
+  <span class="text-alert-orange">☎</span>
+  <span>Theopin: 7708180940</span>
+</a>
+<a class="inline-flex items-center justify-center gap-2 bg-surface-container/60 border border-alert-orange/40 px-3 py-2 text-on-surface-variant hover:text-alert-orange hover:border-alert-orange transition-all rounded-sm" href="tel:7871173131">
+  <span class="text-alert-orange">☎</span>
+  <span>Yoga Prasanna: 7871173131</span>
+</a>
+</div>
+<div class="font-mono-label text-xs md:text-mono-label md:text-right text-surface-variant dark:text-surface-variant">
+                © 2026 Don Bosco Arts and Science College. Department of Computer Applications.
+            </div>
+</div>
+</footer>
+<!-- Shader and Animation Scripts -->
+<script>
+    // WebGL Shader Setup
+    const canvas = document.getElementById('shader-canvas');
+    const gl = canvas.getContext('webgl');
+
+    if (gl) {
+        const vertexShaderSource = `
+            attribute vec2 position;
+            varying vec2 v_texCoord;
+            void main() {
+                gl_Position = vec4(position, 0.0, 1.0);
+                v_texCoord = position * 0.5 + 0.5;
+            }
+        `;
+
+        const fragmentShaderSource = `
+            precision highp float;
+            uniform float u_time;
+            uniform vec2 u_resolution;
+            uniform vec2 u_mouse;
+            varying vec2 v_texCoord;
+
+            float hash(vec2 p) {
+                p = fract(p * vec2(123.34, 456.21));
+                p += dot(p, p + 45.32);
+                return fract(p.x * p.y);
+            }
+
+            void main() {
+                vec2 uv = v_texCoord;
+                
+                // Subtle digital noise background
+                float n = hash(uv + u_time * 0.01);
+                
+                // Horizontal scanlines
+                float scanline = sin(uv.y * 800.0 + u_time * 5.0) * 0.02;
+                
+                // CRT curve distortion (vignette style)
+                float dist = length(uv - 0.5);
+                float vignette = smoothstep(0.8, 0.4, dist);
+                
+                // Base Color: Dark Teal from DS
+                vec3 color = vec3(0.0078, 0.0863, 0.098); // #021619
+                
+                // Add grid lines
+                vec2 grid = fract(uv * 40.0);
+                float line = smoothstep(0.02, 0.0, grid.x) + smoothstep(0.02, 0.0, grid.y);
+                color += line * vec3(0.156, 0.235, 0.25) * 0.3; // #283c40 subtle lines
+                
+                // Flickering overlay
+                float flicker = mix(0.95, 1.05, hash(vec2(u_time)));
+                
+                color += scanline;
+                color *= vignette;
+                color *= flicker;
+                
+                // Glitch pulses
+                if (hash(vec2(floor(u_time * 10.0))) > 0.98) {
+                    color += 0.05 * hash(uv + u_time);
+                }
+
+                gl_FragColor = vec4(color, 1.0);
+            }
+        `;
+
+        function createShader(gl, type, source) {
+            const shader = gl.createShader(type);
+            gl.shaderSource(shader, source);
+            gl.compileShader(shader);
+            if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
+                console.error('An error occurred compiling the shaders: ' + gl.getShaderInfoLog(shader));
+                gl.deleteShader(shader);
+                return null;
+            }
+            return shader;
+        }
+
+        const vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
+        const fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, fragmentShaderSource);
+
+        const program = gl.createProgram();
+        gl.attachShader(program, vertexShader);
+        gl.attachShader(program, fragmentShader);
+        gl.linkProgram(program);
+
+        const positionBuffer = gl.createBuffer();
+        gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
+        const positions = [
+            -1.0, -1.0,
+             1.0, -1.0,
+            -1.0,  1.0,
+            -1.0,  1.0,
+             1.0, -1.0,
+             1.0,  1.0,
+        ];
+        gl.bufferData(gl.ARRAY_BUFFER, new Float32Array(positions), gl.STATIC_DRAW);
+
+        const positionAttributeLocation = gl.getAttribLocation(program, "position");
+        gl.enableVertexAttribArray(positionAttributeLocation);
+        gl.vertexAttribPointer(positionAttributeLocation, 2, gl.FLOAT, false, 0, 0);
+
+        const timeLocation = gl.getUniformLocation(program, "u_time");
+        const resolutionLocation = gl.getUniformLocation(program, "u_resolution");
+
+        function resizeCanvasToDisplaySize(canvas) {
+            const displayWidth  = window.innerWidth;
+            const displayHeight = window.innerHeight;
+            if (canvas.width !== displayWidth || canvas.height !== displayHeight) {
+                canvas.width  = displayWidth;
+                canvas.height = displayHeight;
+                return true;
+            }
+            return false;
+        }
+
+        function render(time) {
+            time *= 0.001;
+            resizeCanvasToDisplaySize(gl.canvas);
+            gl.viewport(0, 0, gl.canvas.width, gl.canvas.height);
+            
+            gl.useProgram(program);
+            gl.uniform1f(timeLocation, time);
+            gl.uniform2f(resolutionLocation, gl.canvas.width, gl.canvas.height);
+
+            gl.drawArrays(gl.TRIANGLES, 0, 6);
+            requestAnimationFrame(render);
+        }
+        requestAnimationFrame(render);
+    }
+</script>
+<script>
+    // GSAP and other interactions
+    document.addEventListener("DOMContentLoaded", (event) => {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Typewriter effect for text
+        const typeWriterElements = document.querySelectorAll('.typewriter-target');
+        typeWriterElements.forEach(el => {
+            const text = el.innerHTML;
+            el.innerHTML = '';
+            let i = 0;
+            const typeText = () => {
+                if (i < text.length) {
+                    el.innerHTML += text.charAt(i);
+                    i++;
+                    setTimeout(typeText, 30 + Math.random() * 50); // random speed for realism
+                }
+            };
+            // Start typing after initial load animation
+            setTimeout(typeText, 1000);
+        });
+
+        // Scroll Triggers for glitch reveals
+        const sections = document.querySelectorAll('.scroll-section');
+        sections.forEach(sec => {
+            gsap.fromTo(sec, 
+                { opacity: 0, scale: 0.95, filter: "brightness(2) contrast(2)" },
+                { 
+                    opacity: 1, 
+                    scale: 1, 
+                    filter: "brightness(1) contrast(1)",
+                    duration: 0.5, 
+                    ease: "power2.out",
+                    scrollTrigger: {
+                        trigger: sec,
+                        start: "top 80%",
+                        onEnter: () => {
+                            // Subtle glitch stutter on enter
+                            gsap.to(sec, {x: 10, duration: 0.05, yoyo: true, repeat: 3});
+                        }
+                    }
+                }
+            );
+        });
+
+        // Terminal Widget Logic
+        const terminalLogs = document.getElementById('terminal-logs');
+        const messages = [
+            "> Booting Esoterica OS...",
+            "> Loading kernel modules...",
+            "> Establishing secure connection...",
+            "> Fetching problem statements...",
+            "> User connected from local node...",
+            "> Awaiting registration input..."
+        ];
+        
+        let msgIndex = 0;
+        let terminalStarted = false;
+        
+        function addTerminalLine() {
+            if(msgIndex >= messages.length) return;
+            
+            // Remove cursor from previous line
+            const lastLine = terminalLogs.lastElementChild;
+            if(lastLine) lastLine.classList.remove('typing-cursor');
+
+            const newLine = document.createElement('div');
+            newLine.className = 'terminal-line typing-cursor text-alert-orange';
+            terminalLogs.appendChild(newLine);
+            
+            const textToType = messages[msgIndex];
+            let charIndex = 0;
+            
+            function typeChar() {
+                if(charIndex < textToType.length) {
+                    newLine.textContent = textToType.substring(0, charIndex + 1);
+                    charIndex++;
+                    setTimeout(typeChar, 20 + Math.random() * 50);
+                } else {
+                    msgIndex++;
+                    setTimeout(addTerminalLine, 2000 + Math.random() * 2000);
+                }
+            }
+            typeChar();
+
+            // Auto scroll
+            if(terminalLogs.children.length > 8) {
+                terminalLogs.removeChild(terminalLogs.firstElementChild);
+            }
+        }
+        
+        // Trigger terminal typing when scrolled into view (or just start it since it's fixed)
+        if(terminalLogs) {
+            setTimeout(addTerminalLine, 1500);
+        }
+
+        // Initial hero animation
+        gsap.from(".hero-content > *:not(.typewriter-target)", {
+            y: 50,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.2,
+            ease: "back.out(1.7)"
+        });
+    });
+</script>
+</body>
+</html>
